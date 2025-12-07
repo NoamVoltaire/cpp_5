@@ -10,13 +10,13 @@ class	Form;
 class	Bureaucrat
 {
 	protected:
-		const std::string	name;
-		short			grade;
+		const std::string	_name;
+		short			_grade;
 			
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, short grade );
-		Bureaucrat(const Bureaucrat &copy);
+		Bureaucrat(const Bureaucrat &other);
 		~Bureaucrat();
 		Bureaucrat	&operator=(const Bureaucrat &src);
 

@@ -8,18 +8,18 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
 }
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "RobotomyRequestForm deconstructor for "<< this->getTarget() << std::endl;
+	std::cout << "RobotomyRequestForm deconstructor for "<< this->_target << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {
-	std::cout << "RobotomyRequestForm constructor for "<< this->getTarget() << " is getting called" << std::endl;
+	std::cout << "RobotomyRequestForm constructor for "<< this->_target << " is getting called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45), _target(copy.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45), _target(copy._target)
 {
-	std::cout << "RobotomyRequestForm constructor is getting called and copying " << copy.getName() <<
-		"for" << this->getName() << std::endl;
+	std::cout << "RobotomyRequestForm constructor is getting called and copying " << copy._name <<
+		"for" << this->_name << std::endl;
 	*this = copy;
 }
 
@@ -53,7 +53,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 {
 	//try
 	//{
-		if (this->getSigned() == false)
+		if (this->_signed == false)
 			throw AForm::FormNotSignedException();
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();
@@ -64,8 +64,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 		//return ;
 	//}
 	if (++rotbotomy_sucess %2)
-		std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
+		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << "Robotomy foor " << this->getTarget() << " has failed." << std::endl;
+		std::cout << "Robotomy foor " << this->_target << " has failed." << std::endl;
 }
 

@@ -8,18 +8,18 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm deconstructor for "<< this->getTarget() << std::endl;
+	std::cout << "ShrubberyCreationForm deconstructor for "<< this->_target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-	std::cout << "ShrubberyCreationForm constructor for "<< this->getTarget() << " is getting called" << std::endl;
+	std::cout << "ShrubberyCreationForm constructor for "<< this->_target << " is getting called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 145, 137), _target(copy.getTarget())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 145, 137), _target(copy._target)
 {
-	std::cout << "ShrubberyCreationForm constructor is getting called and copying " << copy.getName() <<
-		"for" << this->getName() << std::endl;
+	std::cout << "ShrubberyCreationForm constructor is getting called and copying " << copy._name <<
+		"for" << this->_name << std::endl;
 	*this = copy;
 }
 
@@ -52,7 +52,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 {
 	//try
 	//{
-		if (this->getSigned() == false)
+		if (this->_signed == false)
 			throw AForm::FormNotSignedException();
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();

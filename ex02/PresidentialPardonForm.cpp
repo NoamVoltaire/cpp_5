@@ -8,18 +8,18 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm deconstructor for "<< this->getTarget() << std::endl;
+	std::cout << "PresidentialPardonForm deconstructor for "<< this->_target << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-	std::cout << "PresidentialPardonForm constructor for "<< this->getTarget() << " is getting called" << std::endl;
+	std::cout << "PresidentialPardonForm constructor for "<< this->_target << " is getting called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm("PresidentialPardonForm", 25, 5), _target(copy.getTarget())
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm("PresidentialPardonForm", 25, 5), _target(copy._target)
 {
-	std::cout << "PresidentialPardonForm constructor is getting called and copying " << copy.getName() <<
-		"for" << this->getName() << std::endl;
+	std::cout << "PresidentialPardonForm constructor is getting called and copying " << copy._name <<
+		"for" << this->_name << std::endl;
 	*this = copy;
 }
 
@@ -47,13 +47,13 @@ std::string	PresidentialPardonForm::getTarget(void)const
 	return (this->_target);
 }
 
-static int rotbotomy_sucess = 0;
+//static int rotbotomy_sucess = 0;
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 {
 	//try
 	//{
-		if (this->getSigned() == false)
+		if (this->_signed == false)
 			throw AForm::FormNotSignedException();
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();
@@ -63,6 +63,6 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor)const
 		//std::cout << executor.getName() << " couldn’t execute " << this->getName() << " because " << e.what() << std::endl;
 		//return (false);
 	//}
-		std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 

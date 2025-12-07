@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 //#include <string>
 
-Form::Form() : name("Form"), _signed(false), sign_grade(150), exec_grade(150) 
+Form::Form() : _name("Form"), _signed(false), sign_grade(150), exec_grade(150) 
 {
 	std::cout << "Form is getting contructed" << std::endl;
 }
@@ -11,7 +11,7 @@ Form::~Form()
 	std::cout << "Form gets decontructed" << std::endl;
 }
 
-Form::Form(const std::string name, short sign, short exec) : name(name), _signed(false), sign_grade(sign), exec_grade(exec) 
+Form::Form(const std::string name, short sign, short exec) : _name(name), _signed(false), sign_grade(sign), exec_grade(exec) 
 {
 	//if ( grade < 1)
 	if (this->sign_grade > 150 || this->exec_grade > 150)
@@ -21,7 +21,7 @@ Form::Form(const std::string name, short sign, short exec) : name(name), _signed
 	std::cout << this->getName() << " is getting contructed" << std::endl;
 }
 
-Form::Form(const Form &copy) : name(copy.name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
+Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
 {
 	//*this = copy;
 	//std::cout << "That unoriginal " << this->getName()
@@ -49,7 +49,7 @@ std::ostream &operator<<(std::ostream &os, Form const &other)
 
 std::string	Form::getName(void)const
 {
-	return (this->name);
+	return (this->_name);
 }
 
 bool	Form::getSigned(void)const

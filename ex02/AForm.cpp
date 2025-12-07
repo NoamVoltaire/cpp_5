@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 //#include <string>
 
-AForm::AForm() : name("AForm"), _signed(false), sign_grade(150), exec_grade(150) 
+AForm::AForm() : _name("AForm"), _signed(false), sign_grade(150), exec_grade(150) 
 {
 	std::cout << "AForm is getting contructed" << std::endl;
 }
@@ -11,7 +11,7 @@ AForm::~AForm()
 	std::cout << "AForm gets decontructed" << std::endl;
 }
 
-AForm::AForm(const std::string name, short sign, short exec) : name(name), _signed(false), sign_grade(sign), exec_grade(exec) 
+AForm::AForm(const std::string _name, short sign, short exec) : _name(_name), _signed(false), sign_grade(sign), exec_grade(exec) 
 {
 	//if ( grade < 1)
 	if (this->sign_grade > 150 || this->exec_grade > 150)
@@ -21,7 +21,7 @@ AForm::AForm(const std::string name, short sign, short exec) : name(name), _sign
 	std::cout << this->getName() << " is getting contructed" << std::endl;
 }
 
-AForm::AForm(const AForm &copy) : name(copy.name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
+AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
 {
 	//*this = copy;
 	//std::cout << "That unoriginal " << this->getName()
@@ -33,11 +33,11 @@ AForm	&AForm::operator=(const AForm &src)
 	//std::cout << "AForm Assignment operator called" << std::endl;
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->name = src.name;
+		//this->_name = src._name;
 		//this->sign_grade = src.sign_grade;
 		//this->sign_grade = src.sign_grade;
 	return (*this);
-	//this->name = src.name;
+	//this->_name = src._name;
 	//return (*this);
 }
 
@@ -49,7 +49,7 @@ std::ostream &operator<<(std::ostream &os, AForm const &other)
 
 std::string	AForm::getName(void)const
 {
-	return (this->name);
+	return (this->_name);
 }
 
 bool	AForm::getSigned(void)const

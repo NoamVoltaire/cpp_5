@@ -10,7 +10,7 @@ class Bureaucrat;
 class	Form
 {
 	private:
-		const std::string	name;
+		const std::string	_name;
 		bool			_signed;
 		const short			sign_grade;
 		const short			exec_grade;

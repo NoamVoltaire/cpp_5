@@ -1,34 +1,31 @@
 #include "Bureaucrat.hpp"
 //#include <string>
 
-Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(0)
+Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0)
 {
-	//std::cout << "Bureaucrat is getting contructed" << std::endl;
 }
 Bureaucrat::~Bureaucrat()
 {
-	//std::cout << "Bureaucrat gets decontructed" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, short grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grade(grade)
 {
-	if (this->grade > 150)
+	if (this->_grade > 150)
 		throw GradeTooLowException();
-	if (this->grade < 1)
+	if (this->_grade < 1)
 		throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	*this = copy;
+	//*this = other;
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 {
-	//std::cout << "Bureaucrat Assignment operator called" << std::endl;
 	if (this != &src)
-		//this->name = src.name;
-		this->grade = src.grade;
+		//this->_name = src._name;
+		this->_grade = src._grade;
 	return (*this);
 }
 
@@ -40,12 +37,12 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)
 
 std::string	Bureaucrat::getName(void)const
 {
-	return (this->name);
+	return (this->_name);
 }
 
 short	Bureaucrat::getGrade(void)const
 {
-	return (this->grade);
+	return (this->_grade);
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
@@ -58,21 +55,21 @@ const char	*Bureaucrat::GradeTooHighException::what() const throw()
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Bureaucrat's grade is too low");
-	//std::cout << getName() << "' s grade is too low" << std::endl;
+	//std::cout << getName() << "' s _grade is too low" << std::endl;
 	//std::cout << "rank cannot be lower than 150" << std::endl;
 }
 
 void	Bureaucrat::GradeUp()
 {
-	if (this->grade <= 1)
+	if (this->_grade <= 1)
 		throw GradeTooHighException();
-	this->grade--;
+	this->_grade--;
 }
 
 
 void	Bureaucrat::GradeDown()
 {
-	if (this->grade >= 150)
+	if (this->_grade >= 150)
 		throw GradeTooLowException();
-	this->grade++;
+	this->_grade++;
 }
