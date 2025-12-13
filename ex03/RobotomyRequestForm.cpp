@@ -4,7 +4,8 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default") 
 {
-	std::cout << "RobotomyRequestForm is getting contructed" << std::endl;
+	//this is called
+	// std::cout << "RobotomyRequestForm is getting contructed" << std::endl;
 }
 RobotomyRequestForm::~RobotomyRequestForm()
 {

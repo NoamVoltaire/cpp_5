@@ -8,18 +8,35 @@ int	main(void)
 {
 	
 Intern someRandomIntern;
+Bureaucrat	b("Bender", 1);
+Bureaucrat	p("Patrick", 1);
+Bureaucrat	j("JFK", 1);
 AForm* rrf;
 AForm* scf;
 AForm* ppf;
 AForm* notaform;
 rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+std::cout << "\n";
 scf = someRandomIntern.makeForm("Shrubbery Creation", "Patrick");
+std::cout << "\n";
 ppf = someRandomIntern.makeForm("PreSiDenTial PardOn", "JFK");
+std::cout << "\n";
 notaform = someRandomIntern.makeForm("nonexistent form", "JFK");
-(void)rrf;
-(void)scf;
-(void)ppf;
-(void)notaform;
+std::cout << "\n";
+
+b.signForm(*rrf);
+p.signForm(*scf);
+j.signForm(*ppf);
+// b.signForm(*notaform);
+// (void)rrf;
+// (void)scf;
+// (void)ppf;
+// (void)notaform;
+
+delete rrf;
+delete scf;
+delete ppf;
+// delete notaform;
 }
 
 

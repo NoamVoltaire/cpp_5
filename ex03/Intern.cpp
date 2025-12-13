@@ -70,49 +70,62 @@ void	format_name(std::string &f_name)
 	case_down(f_name);
 }
 
-AForm *createShrubberyCreationForm(const std::string &f_target)
+AForm *Intern::createShrubberyCreationForm(const std::string &f_target)
 {
 	return new ShrubberyCreationForm(f_target);
 }
 
-AForm *createPresidentialPardonForm(const std::string &f_target)
+AForm *Intern::createPresidentialPardonForm(const std::string &f_target)
 {
 	return new PresidentialPardonForm(f_target);
 }
 
-AForm *createRobotomyRequestForm(const std::string &f_target)
+AForm *Intern::createRobotomyRequestForm(const std::string &f_target)
 {
 	return new RobotomyRequestForm(f_target);
 }
 
 AForm *Intern::makeForm(std::string f_name, std::string f_target)
 {
-	const char *forms[] = 
-	{
+	// const char *forms[] = 
+	// {
 
-		"shrubberycreation",
-		"robotomyrequest",
-		"presidentialpardon"
-		// "robotomy",
-		// "shrubbery",
-		// "presidential",
-		// "robotomyrequestform"
-		// "shrubberycreationform"
-		// "presidentialpardonform"
+	// 	"shrubberycreation",
+	// 	"robotomyrequest",
+	// 	"presidentialpardon"
+	// 	// "robotomy",
+	// 	// "shrubbery",
+	// 	// "presidential",
+	// 	// "robotomyrequestform"
+	// 	// "shrubberycreationform"
+	// 	// "presidentialpardonform"
 
-	};
-	AForm *(*funcs[])(const std::string&) =
+	// };
+	// AForm *(*funcs[])(const std::string&) =
+	// {
+	// 	createShrubberyCreationForm,
+	// 	createRobotomyRequestForm,
+	// 	createPresidentialPardonForm
+	// };
+
+	Existing_forms	forms[] =
 	{
-		createShrubberyCreationForm,
-		createRobotomyRequestForm,
-		createPresidentialPardonForm
+	 	{"shrubberycreation", &Intern::createShrubberyCreationForm},
+	 	{"robotomyrequest", &Intern::createRobotomyRequestForm},
+	 	{"presidentialpardon", &Intern::createPresidentialPardonForm}
 	};
 	format_name(f_name);
-	for (size_t i = 0; i < sizeof(forms)/sizeof(AForm*); i++)
+	// for (size_t i = 0; i < sizeof(forms)/sizeof(AForm*); i++)
+	for (size_t i = 0; i < 3; i++)
 	{
-		if (f_name == forms[i])
-			return (funcs[i](f_target));
+		// if (f_name == forms[i])
+		// 	return (funcs[i](f_target));
+		if (f_name == forms[i].name)
+		{
+			std::cout << "Intern creates " << f_name << std::endl;
+			return ((this->*forms[i].form_maker)(f_target));
+		}
 	}
-	std::cout << "Error : Intern doesn't know about" << f_name << " form, cannot make form \n" << std::endl;
+	std::cout << "\033[31m" << "Error : Intern doesn't know about" << f_name << " form, cannot make form" << "\033[0m" << std::endl;
 	return NULL;
 }

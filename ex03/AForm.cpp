@@ -18,7 +18,7 @@ AForm::AForm(const std::string _name, short sign, short exec) : _name(_name), _s
 		throw GradeTooLowException();
 	if (this->sign_grade < 1 || this->exec_grade < 1)
 		throw GradeTooHighException();
-	std::cout << this->getName() << " is getting contructed" << std::endl;
+	std::cout <<"AForm constructor for " << this->getName() << " is getting called" << std::endl;
 }
 
 AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 

@@ -4,7 +4,8 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("default") 
 {
-	std::cout << "PresidentialPardonForm is getting contructed" << std::endl;
+	//this is called
+	// std::cout << "PresidentialPardonForm is getting contructed" << std::endl;
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {

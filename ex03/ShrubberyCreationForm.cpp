@@ -4,7 +4,8 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("default") 
 {
-	std::cout << "ShrubberyCreationForm is getting contructed" << std::endl;
+	//this is called
+	// std::cout << "ShrubberyCreationForm is getting contructed" << std::endl;
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
