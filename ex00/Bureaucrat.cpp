@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-//#include <string>
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0)
 {
@@ -18,13 +17,11 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grad
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	//*this = other;
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 {
 	if (this != &src)
-		//this->_name = src._name;
 		this->_grade = src._grade;
 	return (*this);
 }
@@ -48,15 +45,12 @@ short	Bureaucrat::getGrade(void)const
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Bureaucrat's grade is too high");
-	//std::cout << "rank cannot be higher than 1" << std::endl;
 }
 
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Bureaucrat's grade is too low");
-	//std::cout << getName() << "' s _grade is too low" << std::endl;
-	//std::cout << "rank cannot be lower than 150" << std::endl;
 }
 
 void	Bureaucrat::GradeUp()

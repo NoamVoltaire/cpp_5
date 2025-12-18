@@ -1,6 +1,5 @@
 #include "Bureaucrat.hpp"
 #include <exception>
-//#include <string>
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0)
 {
@@ -79,7 +78,7 @@ void	Bureaucrat::signForm(Form &form)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << this->_name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+		std::cerr << this->_name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
 		return ;
 	}
 	std::cout << this->_name << " signed " << form.getName() << std::endl;

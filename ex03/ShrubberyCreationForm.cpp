@@ -1,10 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
-//#include <fstream>
-//#include <string>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), _target("default") 
 {
-	//this is called
 	// std::cout << "ShrubberyCreationForm is getting contructed" << std::endl;
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -26,20 +23,15 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-	//std::cout << "ShrubberyCreationForm Assignment operator called" << std::endl;
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->name = src.name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
-	//this->name = src.name;
-	//return (*this);
 }
 
 std::ostream &operator<<(std::ostream &os, ShrubberyCreationForm const &other)
 {
-	os << "ShrubberyCreationForm : " << other.getName() << "is signed = " << other.getSigned() << std::endl;
+	os << static_cast <const AForm&>(other);
+	os << "Has target : " << other.getTarget() << std::endl;
 	return (os);
 }
 
@@ -51,18 +43,10 @@ std::string	ShrubberyCreationForm::getTarget(void)const
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 {
-	//try
-	//{
 		if (this->_signed == false)
 			throw AForm::FormNotSignedException();
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();
-	//}
-	//catch (const std::exception &e)
-	//{
-		//std::cout << executor.getName() << " couldn’t execute " << this->getName() << " because " << e.what() << std::endl;
-		//return ;
-	//}
 	
 	std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
 	for (int i = 0; i < 5; i++)

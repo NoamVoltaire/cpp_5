@@ -1,6 +1,4 @@
 #include "RobotomyRequestForm.hpp"
-//#include <fstream>
-//#include <string>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("default") 
 {
@@ -38,7 +36,8 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &s
 
 std::ostream &operator<<(std::ostream &os, RobotomyRequestForm const &other)
 {
-	os << "RobotomyRequestForm : " << other.getName() << "is signed = " << other.getSigned() << std::endl;
+	os << static_cast <const AForm&>(other);
+	os << "Has target : " << other.getTarget() << std::endl;
 	return (os);
 }
 
@@ -51,21 +50,13 @@ static int rotbotomy_sucess = 0;
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor)const
 {
-	//try
-	//{
 		if (this->_signed == false)
 			throw AForm::FormNotSignedException();
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();
-	//}
-	//catch (const std::exception &e)
-	//{
-		//std::cout << executor.getName() << " couldn’t execute " << this->getName() << " because " << e.what() << std::endl;
-		//return ;
-	//}
 	if (++rotbotomy_sucess %2)
 		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else
-		std::cout << "Robotomy foor " << this->_target << " has failed." << std::endl;
+		std::cout << "Robotomy for " << this->_target << " has failed." << std::endl;
 }
 

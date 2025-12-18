@@ -3,7 +3,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-//#include <string>
 
 Intern::Intern()
 {
@@ -16,19 +15,12 @@ Intern::~Intern()
 
 Intern::Intern(const Intern &copy)
 {
-	*this = copy;
-	//std::cout << "That unoriginal " << this->getName()
-			//<< "copied it's contruction from " << copy.getName() << std::endl;
+	(void)copy;
+	// *this = copy;
 }
 
 Intern	&Intern::operator=(const Intern &src)
 {
-	//std::cout << "Intern Assignment operator called" << std::endl;
-	// if (this != &src)
-	// 	return (*this);
-		//this->name = src.name;
-		// this->grade = src.grade;
-	//this->name = src.name;
 	(void)src;
 	return (*this);
 }
@@ -37,7 +29,6 @@ void	trim_spaces(std::string &f_name)
 {
 	unsigned int start = 0;
 	unsigned int end = f_name.size() - 1;
-	// unsigned int i = 0;
 
 	while (start < end && std::isspace(f_name[start]))
 		start++;
@@ -87,27 +78,6 @@ AForm *Intern::createRobotomyRequestForm(const std::string &f_target)
 
 AForm *Intern::makeForm(std::string f_name, std::string f_target)
 {
-	// const char *forms[] = 
-	// {
-
-	// 	"shrubberycreation",
-	// 	"robotomyrequest",
-	// 	"presidentialpardon"
-	// 	// "robotomy",
-	// 	// "shrubbery",
-	// 	// "presidential",
-	// 	// "robotomyrequestform"
-	// 	// "shrubberycreationform"
-	// 	// "presidentialpardonform"
-
-	// };
-	// AForm *(*funcs[])(const std::string&) =
-	// {
-	// 	createShrubberyCreationForm,
-	// 	createRobotomyRequestForm,
-	// 	createPresidentialPardonForm
-	// };
-
 	Existing_forms	forms[] =
 	{
 	 	{"shrubberycreation", &Intern::createShrubberyCreationForm},

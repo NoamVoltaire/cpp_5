@@ -27,11 +27,11 @@ std::cout << "\n";
 b.signForm(*rrf);
 p.signForm(*scf);
 j.signForm(*ppf);
-// b.signForm(*notaform);
+(void)notaform;
+// b.signForm(*notaform); // NULL pointer
 // (void)rrf;
 // (void)scf;
 // (void)ppf;
-// (void)notaform;
 
 delete rrf;
 delete scf;

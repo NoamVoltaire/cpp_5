@@ -24,7 +24,8 @@ class	Form
 
 		std::string	getName(void)const;
 		bool	getSigned(void)const;
-		//short		getGrade(void)const;
+		short		getiSignGrade(void)const;
+		short		getExecGrade(void)const;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -36,14 +37,17 @@ class	Form
 	public :
 		virtual const char *what() const throw();
 	};
+	class AlreadySigned: public std::exception
+	{
+	public :
+		virtual const char *what() const throw();
+	};
 
 		void	beSigned(const Bureaucrat &bureaucrat);
 
-		//void	GradeUp();
-		//void	GradeDown();
 
 };
-//std::ostream &operator<<(std::ostream & os, Form const &other);
+std::ostream &operator<<(std::ostream & os, Form const &other);
 
 
 #endif

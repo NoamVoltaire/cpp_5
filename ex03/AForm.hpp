@@ -1,7 +1,6 @@
 # ifndef AFORM_HPP
 # define AFORM_HPP
 
-//#include "Bureaucrat.hpp"
 #include <iostream>
 #include <exception>
 
@@ -24,6 +23,8 @@ class	AForm
 
 		std::string	getName(void)const;
 		bool	getSigned(void)const;
+		short		getiSignGrade(void)const;
+		short		getExecGrade(void)const;
 		//short		getGrade(void)const;
 
 	class GradeTooHighException : public std::exception
@@ -36,6 +37,12 @@ class	AForm
 	{
 		public :
 			virtual const char *what() const throw();
+	};
+
+	class AlreadySigned: public std::exception
+	{
+	public :
+		virtual const char *what() const throw();
 	};
 
 	class FormNotSignedException : public std::exception
@@ -51,7 +58,7 @@ class	AForm
 		//void	GradeDown();
 
 };
-//std::ostream &operator<<(std::ostream & os, AForm const &other);
+std::ostream &operator<<(std::ostream & os, AForm const &other);
 
 
 #endif
