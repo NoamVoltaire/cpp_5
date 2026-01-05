@@ -25,7 +25,6 @@ class	AForm
 		bool	getSigned(void)const;
 		short		getiSignGrade(void)const;
 		short		getExecGrade(void)const;
-		//short		getGrade(void)const;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -54,8 +53,6 @@ class	AForm
 		void	beSigned(const Bureaucrat &bureaucrat);
 
 		virtual void execute(Bureaucrat const & executor)const = 0;
-		//void	GradeUp();
-		//void	GradeDown();
 
 };
 std::ostream &operator<<(std::ostream & os, AForm const &other);
