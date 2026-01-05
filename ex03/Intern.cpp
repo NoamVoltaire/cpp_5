@@ -52,7 +52,8 @@ void	case_down(std::string &f_name)
 	for (size_t i = 0; i < f_name.size(); i++)
 		if(!std::isspace(f_name[i]))
 			formatted += std::tolower(f_name[i]);
-		f_name = formatted;
+
+	f_name = formatted;
 }
 
 void	format_name(std::string &f_name)
@@ -85,11 +86,8 @@ AForm *Intern::makeForm(std::string f_name, std::string f_target)
 	 	{"presidentialpardon", &Intern::createPresidentialPardonForm}
 	};
 	format_name(f_name);
-	// for (size_t i = 0; i < sizeof(forms)/sizeof(AForm*); i++)
 	for (size_t i = 0; i < 3; i++)
 	{
-		// if (f_name == forms[i])
-		// 	return (funcs[i](f_target));
 		if (f_name == forms[i].name)
 		{
 			std::cout << "Intern creates " << f_name << std::endl;

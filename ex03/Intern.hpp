@@ -14,11 +14,11 @@ class	Intern
 	private:
 		typedef AForm *(Intern::*ft_func)(const std::string &);
 
-	struct Existing_forms
-	{
-		const std::string	name;
-		Intern::ft_func	form_maker;
-	};
+		struct Existing_forms
+		{
+			const std::string	name;
+			Intern::ft_func	form_maker;
+		};
 	
 		AForm *createShrubberyCreationForm(const std::string &f_target);
 		AForm *createPresidentialPardonForm(const std::string &f_target);
