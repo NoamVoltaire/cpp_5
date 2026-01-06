@@ -6,7 +6,7 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45
 }
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "RobotomyRequestForm deconstructor for "<< this->_target << std::endl;
+	//std::cout << "RobotomyRequestForm deconstructor for "<< this->_target << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
@@ -16,9 +16,9 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("Robo
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45), _target(copy._target)
 {
-	std::cout << "RobotomyRequestForm constructor is getting called and copying " << copy._name <<
-		"for" << this->_name << std::endl;
-	*this = copy;
+	//std::cout << "RobotomyRequestForm constructor is getting called and copying " << copy._name <<
+		//"for" << this->_name << std::endl;
+	//*this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
@@ -42,13 +42,8 @@ std::string	RobotomyRequestForm::getTarget(void)const
 
 static int rotbotomy_sucess = 0;
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor)const
+void RobotomyRequestForm::execution()const
 {
-		if (this->_signed == false)
-			throw AForm::FormNotSignedException();
-		else if (executor.getGrade() > this->exec_grade)
-			throw Bureaucrat::GradeTooLowException();
-
 	if (++rotbotomy_sucess %2)
 		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else

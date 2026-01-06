@@ -6,7 +6,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm deconstructor for "<< this->_target << std::endl;
+	//std::cout << "ShrubberyCreationForm deconstructor for "<< this->_target << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
@@ -16,9 +16,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 145, 137), _target(copy._target)
 {
-	std::cout << "ShrubberyCreationForm constructor is getting called and copying " << copy._name <<
-		"for" << this->_name << std::endl;
-	*this = copy;
+	//std::cout << "ShrubberyCreationForm constructor is getting called and copying " << copy._name <<
+		//"for" << this->_name << std::endl;
+	//*this = copy;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
@@ -41,13 +41,8 @@ std::string	ShrubberyCreationForm::getTarget(void)const
 }
 
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
+void ShrubberyCreationForm::execution()const
 {
-		if (this->_signed == false)
-			throw AForm::FormNotSignedException();
-		else if (executor.getGrade() > this->exec_grade)
-			throw Bureaucrat::GradeTooLowException();
-	
 	std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
 	for (int i = 0; i < 5; i++)
        {

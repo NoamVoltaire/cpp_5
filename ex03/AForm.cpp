@@ -3,11 +3,11 @@
 
 AForm::AForm() : _name("AForm"), _signed(false), sign_grade(150), exec_grade(150) 
 {
-	std::cout << "AForm is getting contructed" << std::endl;
+	//std::cout << "AForm is getting contructed" << std::endl;
 }
 AForm::~AForm()
 {
-	std::cout << "AForm gets decontructed" << std::endl;
+	//std::cout << "AForm gets decontructed" << std::endl;
 }
 
 AForm::AForm(const std::string _name, short sign, short exec) : _name(_name), _signed(false), sign_grade(sign), exec_grade(exec) 
@@ -16,7 +16,7 @@ AForm::AForm(const std::string _name, short sign, short exec) : _name(_name), _s
 		throw GradeTooLowException();
 	if (this->sign_grade < 1 || this->exec_grade < 1)
 		throw GradeTooHighException();
-	std::cout <<"AForm constructor for " << this->getName() << " is getting called" << std::endl;
+	//std::cout <<"AForm constructor for " << this->getName() << " is getting called" << std::endl;
 }
 
 AForm::AForm(const AForm &copy) : _name(copy._name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
@@ -86,5 +86,13 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 
 void	AForm::execute(const Bureaucrat &executor)const
 {
-	(void)executor;
+	if (this->_signed == false)
+		throw AForm::FormNotSignedException();
+	else if (executor.getGrade() > this->exec_grade)
+		throw Bureaucrat::GradeTooLowException();
+	execution();
+}
+
+void	AForm::execution()const
+{
 }

@@ -8,7 +8,7 @@ Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0)
 }
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat gets decontructed" << std::endl;
+	//std::cout << "Bureaucrat gets decontructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grade(grade)

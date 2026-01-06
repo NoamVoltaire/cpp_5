@@ -6,7 +6,7 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 }
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-	std::cout << "PresidentialPardonForm deconstructor for "<< this->_target << std::endl;
+	//std::cout << "PresidentialPardonForm deconstructor for "<< this->_target << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
@@ -16,9 +16,9 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string target) : AForm
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm("PresidentialPardonForm", 25, 5), _target(copy._target)
 {
-	std::cout << "PresidentialPardonForm constructor is getting called and copying " << copy._name <<
-		"for" << this->_name << std::endl;
-	*this = copy;
+	//std::cout << "PresidentialPardonForm constructor is getting called and copying " << copy._name <<
+		//"for" << this->_name << std::endl;
+	//*this = copy;
 }
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
@@ -41,12 +41,8 @@ std::string	PresidentialPardonForm::getTarget(void)const
 }
 
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor)const
+void PresidentialPardonForm::execution()const
 {
-		if (this->_signed == false)
-			throw AForm::FormNotSignedException();
-		else if (executor.getGrade() > this->exec_grade)
-			throw Bureaucrat::GradeTooLowException();
 		std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
