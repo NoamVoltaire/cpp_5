@@ -25,7 +25,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 {
 	if (this != &src)
-		//this->_name = src._name;
 		this->_grade = src._grade;
 	return (*this);
 }

@@ -18,7 +18,6 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grad
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	//*this = copy;
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)

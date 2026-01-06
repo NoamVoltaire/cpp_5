@@ -4,7 +4,6 @@ int	main(void)
 {
 		
 	std::cout << "\033[33m" << std::endl << "Test ex00" << "\033[0m" << std::endl;
-
 	std::cout << "\033[33m" << std::endl << "Test too high and too low creation" << "\033[0m" << std::endl;
 	try
 	{
@@ -23,6 +22,8 @@ int	main(void)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
+
+
 
 	std::cout << "\033[33m" << std::endl << "Test increasing" << "\033[0m" << std::endl;
 	Bureaucrat bob("Bob", 2);
@@ -46,6 +47,7 @@ int	main(void)
 	std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
 	std::cout << bob;
+
 
 
 

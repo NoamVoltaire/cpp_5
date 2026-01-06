@@ -17,8 +17,6 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string target) : AForm("Robo
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm("RobotomyRequestForm", 72, 45), _target(copy._target)
 {
 	//std::cout << "RobotomyRequestForm constructor is getting called and copying " << copy._name <<
-		//"for" << this->_name << std::endl;
-	//*this = copy;
 }
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &src)

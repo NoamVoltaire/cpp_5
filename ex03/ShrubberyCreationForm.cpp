@@ -17,8 +17,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) : AForm("
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm("ShrubberyCreationForm", 145, 137), _target(copy._target)
 {
 	//std::cout << "ShrubberyCreationForm constructor is getting called and copying " << copy._name <<
-		//"for" << this->_name << std::endl;
-	//*this = copy;
 }
 
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)

@@ -27,9 +27,6 @@ AForm	&AForm::operator=(const AForm &src)
 {
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->_name = src._name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
 }
 

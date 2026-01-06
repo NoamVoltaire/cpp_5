@@ -23,15 +23,9 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AFor
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
 {
-	//std::cout << "RobotomyRequestForm Assignment operator called" << std::endl;
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->name = src.name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
-	//this->name = src.name;
-	//return (*this);
 }
 
 std::ostream &operator<<(std::ostream &os, RobotomyRequestForm const &other)
@@ -48,7 +42,7 @@ std::string	RobotomyRequestForm::getTarget(void)const
 
 static int rotbotomy_sucess = 0;
 
-void RobotomyRequestForm::executeForm()const
+void RobotomyRequestForm::execution()const
 {
 	if (++rotbotomy_sucess %2)
 		std::cout << this->_target << " has been robotomized successfully." << std::endl;

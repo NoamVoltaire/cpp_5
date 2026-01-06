@@ -27,17 +27,8 @@ AForm	&AForm::operator=(const AForm &src)
 {
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->_name = src._name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
 }
-
-// std::ostream &operator<<(std::ostream &os, AForm const &other)
-// {
-// 	os << "AForm :" << other.getName() << "is signed = " << other.getSigned() << std::endl;
-// 	return (os);
-// }
 
 std::ostream &operator<<(std::ostream &os, AForm const &other)
 {
@@ -90,7 +81,7 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 		throw AForm::GradeTooLowException();
 }
 
-void	AForm::executeForm() const
+void	AForm::execution() const
 {
 
 }
@@ -102,6 +93,5 @@ void	AForm::execute(const Bureaucrat &executor)const
 		else if (executor.getGrade() > this->exec_grade)
 			throw Bureaucrat::GradeTooLowException();
 		
-		executeForm();
-	//(void)executor;
+		execution();
 }

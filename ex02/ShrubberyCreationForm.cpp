@@ -25,9 +25,6 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->name = src.name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
 }
 
@@ -44,7 +41,7 @@ std::string	ShrubberyCreationForm::getTarget(void)const
 }
 
 
-void ShrubberyCreationForm::executeForm()const
+void ShrubberyCreationForm::execution()const
 {
 	std::ofstream outfile (this->getTarget().append("_shrubbery").c_str());
 	for (int i = 0; i < 5; i++)

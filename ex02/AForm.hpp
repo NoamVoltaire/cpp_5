@@ -1,7 +1,6 @@
 # ifndef AFORM_HPP
 # define AFORM_HPP
 
-//#include "Bureaucrat.hpp"
 #include <iostream>
 #include <exception>
 
@@ -54,7 +53,7 @@ class	AForm
 		void	beSigned(const Bureaucrat &bureaucrat);
 
 		void execute(Bureaucrat const & executor)const;
-		virtual void executeForm()const = 0;
+		virtual void execution()const = 0;
 };
 std::ostream &operator<<(std::ostream & os, AForm const &other);
 

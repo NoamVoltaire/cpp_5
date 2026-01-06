@@ -24,11 +24,10 @@ int	main(void)
 		std::cout << *pardon << std::endl;
 		a->executeForm(*shrub);
 		
-		// robot->beSigned(*a);
 		a->signForm(*robot);
 		a->signForm(*shrub);
 		a->signForm(*pardon);
-		// srhub->execute(*a);
+
 		std::cout << std::endl;
 		for (int i= 0; i < 10; i++)
 			robot->execute(*a);
@@ -37,7 +36,6 @@ int	main(void)
 
 		std::cout << std::endl;
 		 a->executeForm(*shrub);
-		// srhub->execute(*a);
 
 		std::cout << std::endl;
 		 a->executeForm(*pardon);

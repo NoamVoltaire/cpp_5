@@ -12,25 +12,22 @@ Form::~Form()
 
 Form::Form(const std::string name, short sign, short exec) : _name(name), _signed(false), sign_grade(sign), exec_grade(exec) 
 {
-	//if ( grade < 1)
 	if (this->sign_grade > 150 || this->exec_grade > 150)
 		throw GradeTooLowException();
 	if (this->sign_grade < 1 || this->exec_grade < 1)
 		throw GradeTooHighException();
-	// std::cout << this->getName() << " is getting contructed" << std::endl;
+	 std::cout << this->getName() << " is getting contructed" << std::endl;
 }
 
 Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), sign_grade(copy.sign_grade), exec_grade(copy.exec_grade) 
 {
 }
 
+// copying what we can
 Form	&Form::operator=(const Form &src)
 {
 	if (this != &src)
 		this->_signed= src._signed;
-		//this->name = src.name;
-		//this->sign_grade = src.sign_grade;
-		//this->sign_grade = src.sign_grade;
 	return (*this);
 }
 
@@ -74,7 +71,6 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (this->_signed)
 		throw Form::AlreadySigned();
-		// std::cout << this->getName() << " is already signed" << std::endl;
 	else if (bureaucrat.getGrade() <= this->sign_grade)
 		this->_signed = true;
 	else

@@ -29,13 +29,9 @@ p.signForm(*scf);
 j.signForm(*ppf);
 (void)notaform;
 // b.signForm(*notaform); // NULL pointer
-// (void)rrf;
-// (void)scf;
-// (void)ppf;
 
 delete rrf;
 delete scf;
 delete ppf;
-// delete notaform;
 }
 

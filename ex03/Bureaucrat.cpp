@@ -4,11 +4,9 @@
 
 Bureaucrat::Bureaucrat() : _name("Bureaucrat"), _grade(0)
 {
-	//std::cout << "Bureaucrat is getting contructed" << std::endl;
 }
 Bureaucrat::~Bureaucrat()
 {
-	//std::cout << "Bureaucrat gets decontructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grade(grade)
@@ -17,7 +15,6 @@ Bureaucrat::Bureaucrat(const std::string name, short grade) : _name(name), _grad
 		throw GradeTooLowException();
 	if (this->_grade < 1)
 		throw GradeTooHighException();
-	//std::cout << this->getName() << " is getting contructed" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
@@ -27,11 +24,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &src)
 {
 	if (this != &src)
-		//this->_name = src._name;
 		this->_grade = src._grade;
 	return (*this);
-	//this->_name = src._name;
-	//return (*this);
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)
