@@ -48,12 +48,8 @@ std::string	RobotomyRequestForm::getTarget(void)const
 
 static int rotbotomy_sucess = 0;
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor)const
+void RobotomyRequestForm::executeForm()const
 {
-		if (this->_signed == false)
-			throw AForm::FormNotSignedException();
-		else if (executor.getGrade() > this->exec_grade)
-			throw Bureaucrat::GradeTooLowException();
 	if (++rotbotomy_sucess %2)
 		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else

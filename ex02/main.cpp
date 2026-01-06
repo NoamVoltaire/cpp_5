@@ -22,8 +22,8 @@ int	main(void)
 		std::cout << *robot << std::endl;
 		std::cout << *shrub << std::endl;
 		std::cout << *pardon << std::endl;
-		 a->executeForm(*shrub);
-
+		a->executeForm(*shrub);
+		
 		// robot->beSigned(*a);
 		a->signForm(*robot);
 		a->signForm(*shrub);
